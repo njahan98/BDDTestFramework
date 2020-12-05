@@ -27,11 +27,25 @@ public class LandingPageFunctionality {
 
     @Then("^user clicks on the login button from the footer$")
     public void user_clicks_on_the_login_button_from_the_footer() {
-        landingPage.clickOnLoginButton();
+        landingPage.clickOnLoginButtonFromFooter();
     }
 
     @Then("^user closes the browser$")
     public void user_closes_the_browser() {
         TestBase.driver.close();
+    }
+    @Then("^user provides (.*) and (.*) in the desired field$")
+    public void user_provides_username_and_password_in_the_desired_field(String username, String password){
+        landingPage.fillUserNameAndPasswordField(username,password);
+    }
+
+    @Then("^user clicks on the login button$")
+    public void user_clicks_on_the_login_button(){
+        landingPage.clickOnLoginButton();
+    }
+
+    @Then("^user can see error message$")
+    public void user_can_see_error_message(){
+        landingPage.validateErrorLoginMessage();
     }
 }
